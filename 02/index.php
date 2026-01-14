@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 //1. Set Up & Start 
 
 
@@ -32,6 +33,7 @@ function add($num1, $num2)
     return $num1 + (int)$num2;
 }
 
+echo "<p> The sum is: " . add($num1, $num2) . " </p>";
 //5. Strict Types & Types Hints
 
 //6. OOP with PHP 

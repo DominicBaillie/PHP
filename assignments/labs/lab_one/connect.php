@@ -5,7 +5,6 @@ declare(strict_types=1);
 $host = 'localhost';
 $db = 'test_connection';
 $user = 'root';
-$pass = '';
 $dsn = "mysql:host=$host;port=3307;dbname=$db;charset=utf8mb4";
 
 

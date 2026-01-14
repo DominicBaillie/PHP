@@ -10,14 +10,17 @@ class Car
     public $model;
     public $year; 
 
-    public function construct($make, $model, $year) 
+    // Constructor seems to need __ which is odd (coming from c# at least)
+    public function __construct($make, $model, $year) 
     {
+        // Assigning class variables, this-> rather than c# this. is weird
         $this->make = $make;
         $this->model = $model;
         $this->year = $year;
     }
     public function getDescription()
     {
+        // Just returning it
         return $this->year . ' ' . $this->make . ' ' . $this->model;
     }
 } 

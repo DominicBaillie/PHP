@@ -10,7 +10,7 @@ include "car.php";
 // Create the car object, containing the brand/make, the modle and the year
 $carObject = new car("Honda", "Civic", 2003);
 
-echo "\r\n"; // New line
+echo " " . PHP_EOL . " "; // New line
 
 // Call to getDescription function in echo
 echo $carObject->getDescription();

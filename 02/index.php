@@ -34,6 +34,5 @@ function add($num1, $num2)
 
 //5. Strict Types & Types Hints
 
-declare(strict_types=1);
 //6. OOP with PHP 
 

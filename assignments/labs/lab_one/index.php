@@ -8,7 +8,9 @@ require_once "connect.php";
 include "car.php";
 
 // Create the car object, containing the brand/make, the modle and the year
-$carObject = new car(" Honda", "Civic", 2003);
+$carObject = new car("Honda", "Civic", 2003);
+
+echo "\n"; // New line
 
 // Call to getDescription function in echo
 echo $carObject->getDescription();

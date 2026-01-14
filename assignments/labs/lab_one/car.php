@@ -8,7 +8,7 @@ class Car
     public $model;
     public $year; 
 
-    public function construct($make, $model, $year) 
+    public function __construct($make, $model, $year) 
     {
         $this->make = $make;
         $this->model = $model;
@@ -16,6 +16,6 @@ class Car
     }
     public function getDescription()
     {
-        return $year . ' ' . ' ' . $brand . ' ' . $model
+        return $this->year . ' ' . $this->make . ' ' . $this->model;
     }
 } 

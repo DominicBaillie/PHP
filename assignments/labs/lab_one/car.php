@@ -22,5 +22,10 @@ class Car
     {
         // Just returning it
         return $this->year . ' ' . $this->make . ' ' . $this->model;
+        /*
+           Better method ->
+        
+                return "Make : {$this->make} | Model : ($this-> $model) | Year: {$this-> year}}"
+        */
     }
 } 

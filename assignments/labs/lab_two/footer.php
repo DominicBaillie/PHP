@@ -6,3 +6,7 @@
 
 </body>
 </html>
+<?php
+/*
+    Just a footer with one p element / "paragraph" imported to index
+*/

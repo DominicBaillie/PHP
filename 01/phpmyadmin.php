@@ -4,17 +4,7 @@
     * Located in phpmyadmin root directory
     * xamp > phpmyadmin > config.inc.php
 */
-declare(strict_types=1);
 
-use PhpMyAdmin\Common;
-use PhpMyAdmin\Routing;
-
-if (! defined('ROOT_PATH')) {
-    // phpcs:disable PSR1.Files.SideEffects
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
-    // phpcs:enable
-}
-<?php
 /*
  * This is needed for cookie based authentication to encrypt password in
  * cookie

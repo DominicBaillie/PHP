@@ -1,7 +1,7 @@
 <?php require "includes/header.php" ?>
 <main>
   <h2> Order Online - Easy & Simple (And Totally Secure...) 🧁</h2>
-  <form action="process.php" method="get">
+  <form action="process.php" method="post">
 
     <!-- Customer Information -->
     <fieldset>

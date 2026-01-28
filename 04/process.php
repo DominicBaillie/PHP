@@ -1,11 +1,11 @@
 <?php require "includes/header.php" ;
-$fname = $_GET['first_name'];
-$lname = $_GET['last_name'];
-$items = $_GET['items'];
-$phone = $_GET['phone'];
-$address = $_GET['address'];
-$email = $_GET['email'];
-$comments = $_GET['comments'];
+$fname = $_POST['first_name'];
+$lname = $_POST['last_name'];
+$items = $_POST['items'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$email = $_POST['email'];
+$comments = $_POST['comments'];
 ?>
 
 
@@ -18,7 +18,7 @@ $comments = $_GET['comments'];
 <?php
     foreach ($items as $item) 
 {
-    echo '<p>'.$item.': '.$quantity.'</p>';
+    echo '<p>'.$item.'</p>';
 }
 ?>
 </main>

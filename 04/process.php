@@ -12,13 +12,17 @@ $comments = $_POST['comments'];
 <main>
 
     <h2> Order Processed </h2>
-    <?php echo "<p>Thank you, ".$fname." ".$lname.", for your order!</p>"; ?>
+    <p><strong>Thank you <?php echo $fname . ' ' . $lname; ?> for your order!</strong></p>
+    <h4>Contact Information:</h4>
+    <p>Phone Number: <?php echo $phone; ?></p>
+    <p>Address: <?php echo $address; ?></p>
+    <p>Email: <?php echo $email; ?></p>
 
     <h4>Order Summary: </h4>
 <?php
-    foreach ($items as $item) 
+    foreach ($items as $item => $quantity) 
 {
-    echo '<p>'.$item.'</p>';
+    echo '<li><p>'.$item.': '.$quantity.'</p></li>';
 }
 ?>
 </main>

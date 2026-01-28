@@ -1,19 +1,30 @@
-<?php
-
+<?php require "includes/header.php" ;
 $fname = $_GET['first_name'];
 $lname = $_GET['last_name'];
-echo 'Hello, '.$fname.' '.$lname.'! Your order has been received.';
-echo "<h4> Order Summary: </h4>";
-$items = $_GET['items'];
-foreach ($items as $item => $quantity) {
-    
-    if ($quantity > 0) {
-        echo '<p>'.$item.': '.$quantity.'</p>';
-    }
+$items = $_POST['items'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$email = $_POST['email'];
+$comments = $_POST['comments'];
+?>
+
+
+<main>
+
+    <h2> Order Processed </h2>
+    <?php echo "<p>Thank you, ".$fname." ".$lname.", for your order!</p>"; ?>
+
+    <h4>Order Summary: </h4>
+<?php
+    foreach ($items as $item) 
+{
+    echo '<p>'.$item.': '.$quantity.'</p>';
 }
+?>
+</main>
 
 
-
+<?php require "includes/footer.php";
 
 
 ?>

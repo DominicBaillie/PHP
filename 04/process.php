@@ -6,6 +6,65 @@ $phone = $_POST['phone'];
 $address = $_POST['address'];
 $email = $_POST['email'];
 $comments = $_POST['comments'];
+
+
+
+
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) 
+{
+    echo "Email address '$email' is considered valid.\n";
+} else {
+    echo "Email address '$email' is considered invalid.\n";
+}
+
+if (filter_var($phone, FILTER_SANITIZE_NUMBER_INT)) 
+{
+    echo "Phone number '$phone' is considered valid.\n";
+} else {
+    echo "Phone number '$phone' is considered invalid.\n";
+}
+
+if (filter_var($fname, FILTER_DEFAULT)) 
+{
+    echo "First name '$fname' is considered valid.\n";
+} else {
+    echo "First name '$fname' is considered invalid.\n";
+}
+if (filter_var($lname, FILTER_DEFAULT)) 
+{
+    echo "Last name '$lname' is considered valid.\n";
+} else {
+    echo "Last name '$lname' is considered invalid.\n";
+}
+
+if (filter_var($address, FILTER_DEFAULT)) 
+{
+    echo "Address '$address' is considered valid.\n";
+} else {
+    echo "Address '$address' is considered invalid.\n";
+}
+
+if (filter_var($comments, FILTER_DEFAULT)) 
+{
+    echo "Comments '$comments' is considered valid.\n";
+} else {
+    echo "Comments '$comments' is considered invalid.\n";
+}
+
+if (filter_var($items, FILTER_VALIDATE_INT)) 
+{
+    echo "Items '$items' is considered valid.\n";
+} else {
+    echo "Items '$items' is considered invalid.\n";
+}
+
+if (filter_var($email, FILTER_VALIDATE_EMAIL))
+{
+    echo "Email address '$email' is considered valid.\n";
+} else {
+    echo "Email address '$email' is considered invalid.\n";
+}
+
 ?>
 
 

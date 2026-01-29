@@ -1,69 +1,49 @@
 <?php require "includes/header.php" ;
-$fname = $_POST['first_name'];
-$lname = $_POST['last_name'];
-$items = $_POST['items'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$email = $_POST['email'];
-$comments = $_POST['comments'];
+include 'send_email.php';
+$fname = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$lname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$items = $_POST['items'] ?? [];
+$phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+$address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_SPECIAL_CHARS);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$comments = filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_SPECIAL_CHARS);
+$errors = [];
 
-
-
-
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) 
+if ($fname === null || $fname === "") 
 {
-    echo "Email address '$email' is considered valid.\n";
-} else {
-    echo "Email address '$email' is considered invalid.\n";
+    $errors[] = "First name is required.";
+}
+if ($lname === null || $lname === "") 
+{
+    $errors[] = "Last name is required.";
+}
+if ($email === null || $email === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = "A valid email address is required.";
+}elseif  (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = "Email address is not valid.";
 }
 
-if (filter_var($phone, FILTER_SANITIZE_NUMBER_INT)) 
+if($phone === null || $phone === "") 
 {
-    echo "Phone number '$phone' is considered valid.\n";
-} else {
-    echo "Phone number '$phone' is considered invalid.\n";
+    $errors[] = "Phone number is required.";
+}
+if($address === null || $address === "") 
+{
+    $errors[] = "Address is required.";
+}
+if (empty($items)) 
+{
+    $errors[] = "At least one item must be ordered.";
 }
 
-if (filter_var($fname, FILTER_DEFAULT)) 
-{
-    echo "First name '$fname' is considered valid.\n";
-} else {
-    echo "First name '$fname' is considered invalid.\n";
-}
-if (filter_var($lname, FILTER_DEFAULT)) 
-{
-    echo "Last name '$lname' is considered valid.\n";
-} else {
-    echo "Last name '$lname' is considered invalid.\n";
-}
-
-if (filter_var($address, FILTER_DEFAULT)) 
-{
-    echo "Address '$address' is considered valid.\n";
-} else {
-    echo "Address '$address' is considered invalid.\n";
-}
-
-if (filter_var($comments, FILTER_DEFAULT)) 
-{
-    echo "Comments '$comments' is considered valid.\n";
-} else {
-    echo "Comments '$comments' is considered invalid.\n";
-}
-
-if (filter_var($items, FILTER_VALIDATE_INT)) 
-{
-    echo "Items '$items' is considered valid.\n";
-} else {
-    echo "Items '$items' is considered invalid.\n";
-}
-
-if (filter_var($email, FILTER_VALIDATE_EMAIL))
-{
-    echo "Email address '$email' is considered valid.\n";
-} else {
-    echo "Email address '$email' is considered invalid.\n";
-}
+if (!empty($errors)) 
+    {
+        echo "<h2>There were errors with your submission:</h2><ul>";
+        foreach ($errors as $error) {
+            echo "<li>" .$error. "</li>";
+        }
+        exit;
+    }
 
 ?>
 

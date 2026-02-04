@@ -1,5 +1,5 @@
 <?php require "includes/header.php" ?>
-<? require "includes/connect.php"; ?>
+<?php require "includes/connect.php"; ?>
 <main>
   <h2> Order Online - Easy & Simple (And Totally Secure...) 🧁</h2>
   <form action="process.php" method="post">

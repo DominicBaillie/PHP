@@ -17,7 +17,7 @@ if ($lname === null || $lname === "")
 {
     $errors[] = "Last name is required.";
 }
-if ($email === null || $email === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if ($email === null || $email === "") {
     $errors[] = "A valid email address is required.";
 }elseif  (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Email address is not valid.";

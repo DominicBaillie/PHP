@@ -1,4 +1,5 @@
 <form action="process.php" method="post">
+    <?php require_once "connect.php"; ?>
     <fieldset>
         <!-- Get user information, with requirnments -->
         <legend>Customer Information</legend>

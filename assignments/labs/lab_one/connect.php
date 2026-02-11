@@ -6,7 +6,7 @@ declare(strict_types=1);
 $host = 'localhost';
 $db = 'test_connection';
 $user = 'root';
-$pass = 'password';
+$pass = '';
 //I used a costum port, so needed to learn a new $dsn (I was really struggling getting this to work)
 $dsn = "mysql:host=$host;port=3307;dbname=$db;charset=utf8mb4";
 

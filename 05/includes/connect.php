@@ -6,7 +6,7 @@ $host = "localhost";
 $db = "lessonfive";
 $user = "root";
 $pass = "";
-$dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+$dsn = "mysql:host=$host;port=3307;dbname=$db;charset=utf8mb4";
 
 try 
 {

@@ -102,7 +102,7 @@ $midnightMuffin = $itemsOrdered['midnight_muffin'] ?? 0;
 $essentialEclair = $itemsOrdered['existential_eclair'] ?? 0;
 $procrastinationCookie = $itemsOrdered['procrastination_cookie'] ?? 0;
 $finalsWeekBrownie = $itemsOrdered['finals_week_brownie'] ?? 0;
-$victoryCinnimanRoll = $itemsOrdered['victory_cinnamon_roll'] ?? 0;
+$victoryCinnamonRoll = $itemsOrdered['victory_cinnamon_roll'] ?? 0;
 
 // Bind Params
 

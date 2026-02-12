@@ -31,10 +31,10 @@ if (!empty($errors))
     }
     exit;
 }
-
+# Insert into database
 $sql = "INSERT INTO orders (first_name, last_name, email)VALUES (:first_name, :last_name, :email)";
 
-
+# Prepare and execute
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':first_name', $fname);
 $stmt->bindParam(':last_name', $lname);
@@ -46,13 +46,14 @@ $stmt->execute();
 <html lang="en">
 
 <head>
+<!-- Head for process page -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
-
+<!-- Thank you conformation message to user -->
     <main class="container mt-4">
         <h2>Thank You for Subscribing</h2>
         <h2> Order Processed </h2>

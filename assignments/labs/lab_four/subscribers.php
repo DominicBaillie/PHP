@@ -13,7 +13,7 @@ require_once "includes/connect.php";
 
 # Write a SELECT query to get all subscribers
 
-$sql = "SELECT id, first_name, last_name, email, subscribed_at FROM subscribers ORDER BY subscribed_at DESC";
+$sql = "SELECT * FROM subscribers ORDER BY subscribed_at DESC";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();

@@ -1,6 +1,6 @@
 <?php
 //TODO:
-require "includes/connect.php";
+require_once "includes/connect.php";
 
 /*
   TODO:

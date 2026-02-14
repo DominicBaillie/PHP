@@ -22,12 +22,16 @@
 
             <label class="form-label mt-3" for="email">Email Address</label>
             <input class="form-control" type="email" id="email" name="email">
+
+            <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio"></textarea>
+            
 <!-- Submits to process.php -->
             <button class="btn btn-primary mt-4" type="submit">Submit</button>
         </form>
 
         <p class="mt-4">
-            <a href="subscribers.php">View Subscribers</a>
+            <a href="update.php">View Current Resumes</a>
         </p>
     </main>
 <!-- 

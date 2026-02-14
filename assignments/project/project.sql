@@ -1,7 +1,12 @@
-CREATE TABLE subscribers (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR(100),
-  last_name  VARCHAR(100),
-  email      VARCHAR(150),
-  subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE resumes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    current_position VARCHAR(100) NOT NULL,
+    skills TEXT NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    bio TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

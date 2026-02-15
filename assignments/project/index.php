@@ -31,9 +31,7 @@
             <input class="form-control" type="email" id="email" name="email">
 
             <label class="form-label mt-3">Skills</label>        
-            <input type="text" name="skills[]" class="form-control mb-2" placeholder="Enter a skill">
-
-            <button type="button" class="btn btn-secondary btn-sm" onclick="addSkill()">Add Another Skill</button>
+            <textarea class="form-control mb-2" id="skills" name="skills" placeholder="Enter skills" rows = "5"></textarea>
 
             <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio"></textarea>

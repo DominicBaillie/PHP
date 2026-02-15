@@ -105,7 +105,7 @@ $stmt->execute();
                 <p>Skill: <?php echo $skill; ?></p>
             <?php } ?>
             <p class="mt-3">
-                <a href="subscribers.php">View Subscribers</a>
+                <a href="update.php">View Submissions</a>
             </p>
         </main>
     </body>

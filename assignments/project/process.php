@@ -1,5 +1,4 @@
 <?php
-require "includes/header.php";
 require_once "includes/connect.php";  
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Invalid request');

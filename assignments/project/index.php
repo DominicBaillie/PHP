@@ -31,7 +31,7 @@
             <input class="form-control" type="email" id="email" name="email">
 
             <label class="form-label mt-3">Skills</label>        
-            <textarea class="form-control mb-2" id="skills" name="skills" placeholder="Enter skills" rows = "5"></textarea>
+            <textarea class="form-control mb-2" id="skills" name="skills" placeholder="Skill1, Skill2, Skill3" rows = "1"></textarea>
 
             <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio"></textarea>
@@ -45,7 +45,7 @@
         </p>
     </main>
 <!-- 
-        Difficult: Learning to add multi functionality to process.php was new and cool. I had multiple pages able to submit and get different results, such as; editing, deleting, or the base functionality
+        Difficult: Learning to add multi functionality to process.php was new and cool. I had multiple pages able to submit and get different results, such as; editing, deleting, or the base functionality. Also for some reason printing skills was a pain, gave up and just used a ', ' sperator
         Easy: We learned the base setup for forms and processing in class, so that didn't take up too much time to alter for this project
 
 -->

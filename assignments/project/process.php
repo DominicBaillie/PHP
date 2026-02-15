@@ -13,7 +13,7 @@ $bio  = trim(filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_SPECIAL_CHARS));
 $delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 # Make into a list
-$skills = explode("\n", $skills);
+$skillsarray = explode("\n", $skills);
 $errors = [];
 
 # Validation / I don't expect a name and such if it's being deleted
@@ -102,7 +102,7 @@ $stmt->execute();
             <p><?php echo $bio; ?></p>
             <!-- List skills provided -->
             <h4>Skills:</h4>
-            <?php foreach ($skills as $skill) { ?>
+            <?php foreach ($skillsarray as $skill) { ?>
                 <p>Skill: <?php echo $skill; ?></p>
             <?php } ?>
             <p class="mt-3">

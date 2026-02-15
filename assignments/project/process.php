@@ -13,7 +13,14 @@ $bio  = trim(filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_SPECIAL_CHARS));
 $delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 # Make into a list
+<<<<<<< HEAD
 $skillsarray = explode("\r\n", $skills);
+=======
+$skills = str_replace("\r\n", "\n", $skills);
+$skillsarray = explode("\n", $skills);
+$skillsarray = array_map('trim', $skillsarray);
+$skillsarray = array_filter($skillsarray);
+>>>>>>> 5b77acbfc24f1d360195973809c9921a23f8cbd1
 
 $errors = [];
 

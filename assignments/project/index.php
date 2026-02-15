@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+<!-- Bootstrap and meta data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMP1006 - Lab Four</title>
+    <title>COMP1006 - Project Phase 1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"
 </head>
 
@@ -20,8 +21,16 @@
             <label class="form-label mt-3" for="last_name">Last Name</label>
             <input class="form-control" type="text" id="last_name" name="last_name">
 
+            <label class="form-label mt-3" for="current_position">Current Position</label>
+            <input class="form-control" type="text" id="current_position" name="current_position">
+
             <label class="form-label mt-3" for="email">Email Address</label>
             <input class="form-control" type="email" id="email" name="email">
+
+            <label class="form-label mt-3">Skills</label>        
+            <input type="text" name="skills[]" class="form-control mb-2" placeholder="Enter a skill">
+
+            <button type="button" class="btn btn-secondary btn-sm" onclick="addSkill()">Add Another Skill</button>
 
             <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio"></textarea>
@@ -35,8 +44,9 @@
         </p>
     </main>
 <!-- 
-        What was difficult: There was something wrong with php my admin I fixed to get the database workijng. Getting the databse functioning and learning to send and retrieve data was new and interesting
-        What was easy: The general code structure was familir to  previous code in the clas, so I was able to refer to previous lessons to get this lab  functioning
+        Difficult: Learning to add multi functionality to process.php was new and cool. I had multiple pages able to submit and get different results, such as; editing, deleting, or the base functionality
+        Easy: We learned the base setup for forms and processing in class, so that didn't take up too much time to alter for this project
+
 -->
 </body>
 

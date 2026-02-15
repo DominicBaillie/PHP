@@ -103,8 +103,8 @@ $stmt->execute();
             <p><?php echo $bio; ?></p>
             <!-- List skills provided -->
             <h4>Skills:</h4>
-            <?php foreach ($skillsarray as $item) { ?>
-                <li>Skill: <?php echo $item; ?></li>
+            <?php foreach ($skillsarray as $skill) { ?>
+                <ul><li>Skill: <?php echo $skill; ?></li></ul>
             <?php } ?>
             <p class="mt-3">
                 <a href="update.php">View Submissions</a>

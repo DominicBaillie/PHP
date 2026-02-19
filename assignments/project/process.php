@@ -50,6 +50,10 @@ if ($delete)
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
+    ?>
+    <h4>Resume Deleted:</h4>
+    <p>ID: <?php echo $id; ?></p>
+    <?php
     exit;
 }
 # Update database if update.php sends an id
@@ -65,6 +69,10 @@ if(!empty($id))
     $stmt->bindParam(':phone', $phone);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
+    ?>
+    <h4>Resume Updated:</h4>
+    <p>ID: <?php echo $id; ?></p>
+    <?php
     exit;
 }
 # Insert into database

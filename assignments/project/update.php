@@ -46,29 +46,30 @@ $length = count($resumes);
           </tr>
         <?php endforeach; ?>
         <form action="process.php" method="post" class="mt-3">
-            <label class="form-label" for="id">Select ID to Edit</label>
-            <input class="form-control" type="text" id="id" name="id" maxlength length >
-
-            <input type="checkbox" id="delete" name="delete">Delete Selected?</label>
-            
-            <input class="form-control" type="text" id="first_name" name="first_name">
+<!-- The form, retrieves values from the user -->
+        <form action="process.php" method="post" class="mt-3">
             <label class="form-label" for="first_name">First Name</label>
+            <input class="form-control" type="text" id="first_name" name="first_name">
 
+            <label class="form-label mt-3" for="last_name">Last Name</label>
             <input class="form-control" type="text" id="last_name" name="last_name">
-            <label class="form-label" for="last_name">Last Name</label>
 
+            <label class="form-label mt-3" for="current_position">Current Position</label>
             <input class="form-control" type="text" id="current_position" name="current_position">
-            <label class="form-label" for="current_position">Current Position</label>
 
+            <label for="phone"class = "form-label">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="555-123-4567" class = "form-control">
+
+            <label class="form-label mt-3" for="email">Email Address</label>
             <input class="form-control" type="email" id="email" name="email">
-            <label class="form-label" for="email">Email Address</label>
-        
-            <input type="text" name="skills" class="form-control" placeholder="Enter a skill">
-            <label class="form-label" for="skills">Skills</label>
 
+            <label class="form-label mt-3" for="skills">Skills</label>        
+            <textarea class="form-control mb-2" id="skills" name="skills" placeholder="Enter skills" rows = "5"></textarea>
+
+            <label for="bio" class="form-label">Bio</label>
             <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
-            <label for="bio" class="form-label">Bio</label>>
-
+            
+<!-- Submits to process.php -->
             <button class="btn btn-primary mt-4" type="submit">Submit</button>
         </form>
       </tbody>

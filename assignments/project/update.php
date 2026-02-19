@@ -49,8 +49,8 @@ $length = count($resumes);
             <label class="form-label" for="id">Select ID to Edit</label>
             <input class="form-control" type="text" id="id" name="id" maxlength length >
 
-            <input class="form-control" type="checkbox" id="delete" name="delete">Delete Selected?</label>
-            <label class="form-label" for="delete">Delete Selected?</label>
+            <input type="checkbox" id="delete" name="delete">Delete Selected?</label>
+            <label for="delete"></label>
             
             <input class="form-control" type="text" id="first_name" name="first_name">
             <label class="form-label" for="first_name">First Name</label>

@@ -63,13 +63,11 @@ $length = count($resumes);
             <input class="form-control" type="email" id="email" name="email">
             <label class="form-label" for="email">Email Address</label>
         
-            <input type="text" name="skills[]" class="form-control mb-2" placeholder="Enter a skill">
-            <label class="form-label">Skills</label>
+            <input type="text" name="skills" class="form-control" placeholder="Enter a skill">
+            <label class="form-label" for="skills">Skills</label>
 
-            <button type="button" class="btn btn-secondary btn-sm" onclick="addSkill()">Add Another Skill</button>
-
-            <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio"></textarea>
+            <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
+            <label for="bio" class="form-label">Bio</label>>
 
             <button class="btn btn-primary mt-4" type="submit">Submit</button>
         </form>

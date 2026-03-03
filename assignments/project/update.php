@@ -59,6 +59,7 @@ $length = count($resumes);
 
             <label for= "delete" class="form-label">Delete</label>
             <input type="checkbox" id="delete" name="delete">
+            <br>
 
             <label for="phone"class = "form-label">Phone number</label>
             <input type="tel" id="phone" name="phone" placeholder="555-123-4567" class = "form-control">

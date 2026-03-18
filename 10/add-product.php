@@ -42,6 +42,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Add Code Here 
 
+    if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] !== UPLOAD_ERR_NO_FILE)
+        
+        {
+            if($_FILES['product_image']['error'] !==UPLOAD_ERR_OK)
+                {
+                    $errors[] = 'There was an upload problem';
+                }
+            else
+                {
+                    $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+                    $detectedType = mime_content_type($$_FILES['product_image']['tmp_name']);
+                    if(!in_array($detectedType, $allowedType, true))
+                        {
+                            $errors[] = "Incorrect type";
+                        }
+                    else
+                        {
+                            $extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
+                            $safeFileName = uniqid('product_', true). '.'.strtolower($extension);
+                            $destination = __DIR__.'/uploads/'.$safeFileName;
+                            if(move_uploaded_file($_FILES['product_image']['tmp_name'], $destination));
+                        }
+                }
+        }
     // If there are no errors, insert the product into the database
     if (empty($errors)) {
         $sql = "INSERT INTO products (name, description, price, image_path)
@@ -122,4 +146,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </main>
 
-<?php require "footer.php"; ?>
+<?php require "includes/footer.php"; ?>

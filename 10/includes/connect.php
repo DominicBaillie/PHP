@@ -1,18 +1,26 @@
-<?php 
-$host = "localhost"; //hostname
-$db = "bitumi"; //database name
-$user = "root"; //username
-$password = ""; //password
+<?php
 
-//points to the database
-$dsn = "mysql:host=$host;dbname=$db";
+declare(strict_types=1);
 
-//try to connect, if connected echo a yay!
-try {
-   $pdo = new PDO ($dsn, $user, $password); 
-   $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+$host = 'localhost';
+$db = 'securedb';
+$user = 'root';
+$pass = '';
+$dsn = "mysql:host=$host;port=3307;dbname=$db;charset=utf8mb4";
+
+
+try 
+{
+    // Create new PDO
+    $pdo = new PDO($dsn, $user, $pass);
+    // Set error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Success message
+    echo "Connected successfully";
 }
-//what happens if there is an error connecting 
-catch(PDOException $e) {
-    die("Database connection failed: " . $e->getMessage()); 
+
+catch (PDOException $e) 
+{
+    // Failure message
+    die("Connection failed: " . $e->getMessage());
 }

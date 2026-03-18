@@ -42,22 +42,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Add Code Here 
 
-    if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] !== UPLOAD_ERR_NO_FILE) {
+    //check if a file is uploaded 
+    if (isset($_FILES['product_image']) && $_FILES['product_image']['error']  !== UPLOAD_ERR_NO_FILE) {
+        //make sure the file upload completed succesfully 
         if ($_FILES['product_image']['error'] !== UPLOAD_ERR_OK) {
-            $errors[] = 'There was an upload problem';
+            $errors[] = "There was a problem uploading the image!";
         } else {
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
-            $detectedType = mime_content_type($$_FILES['product_image']['tmp_name']);
+            //only allow common image file types 
+            $allowedType = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+            //detect the real MIME type of the uploaded file 
+            $detectedType = mime_content_type($_FILES['product_image']['tmp_name']);
             if (!in_array($detectedType, $allowedType, true)) {
-                $errors[] = "Incorrect type";
+                $errors[] = "Only JPG, JPEG, WEBP and PNG are allowed";
             } else {
+                //get the file extension 
                 $extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
-                $safeFileName = uniqid('product_', true) . '.' . strtolower($extension);
-                $destination = __DIR__ . '/uploads/' . $safeFileName;
+                //create a unique filename so uploaded files don't overwrite each other 
+                $safeFilename = uniqid('product_', true) . '.' . strtolower($extension);
+                //build the full server path where the file will be stored 
+                $destination = __DIR__ . '/uploads/' . $safeFilename;
+                //move the uploaded file from temporary storage to the uploads folder
                 if (move_uploaded_file($_FILES['product_image']['tmp_name'], $destination)) {
-                    $imagePath = 'uploads/' . $safeFileName;
+                    $imagePath = 'uploads/' . $safeFilename;
                 } else {
-                    $errors[] = 'Failed to upload';
+                    $errors[] = "Image upload failed!";
                 }
             }
         }

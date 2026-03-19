@@ -1,10 +1,9 @@
 <?php
 //challenge students to create independently initially */ 
 require "includes/connect.php";
-require "includes/header.php";
 
 // Get all products, newest first
-$sql = "SELECT * FROM lab5 ORDER BY created_at DESC";
+$sql = "SELECT * FROM images ORDER BY created_at DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $images = $stmt->fetchAll();
@@ -14,7 +13,7 @@ $images = $stmt->fetchAll();
 
 <main class="container mt-4">
     <h1 class="mb-4">Your Images</h1>
-    <?php if (empty($products)): ?>
+    <?php if (empty($images)): ?>
         <p>Upload an Image</p>
     <?php else: ?>
         <div class="row">

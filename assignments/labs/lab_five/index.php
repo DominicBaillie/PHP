@@ -2,7 +2,6 @@
 // Connect to the database
 require "includes/connect.php";
 // Show the admin-style header/navigation
-require "includes/header_admin.php";
 // Array for validation errors
 $errors = [];
 // Check if the form was submitted
@@ -30,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $sql = "INSERT INTO lab5 (image_path)
+        $sql = "INSERT INTO images (image_path)
                 VALUES (:image_path)";
 
         $stmt = $pdo->prepare($sql);

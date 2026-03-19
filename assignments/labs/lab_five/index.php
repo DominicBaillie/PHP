@@ -1,0 +1,74 @@
+<?php
+// Connect to the database
+require "includes/connect.php";
+// Show the admin-style header/navigation
+require "includes/header_admin.php";
+// Array for validation errors
+$errors = [];
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_FILES['product_image']) && $_FILES['product_image']['error']  !== UPLOAD_ERR_NO_FILE) {
+        if ($_FILES['product_image']['error'] !== UPLOAD_ERR_OK) {
+            $errors[] = "Error With Upload";
+        } else { 
+            $allowedType = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg']; 
+            $detectedType = mime_content_type($_FILES['product_image']['tmp_name']);
+            if (!in_array($detectedType, $allowedType, true)) {
+                $errors[] = "Invalid File Type";
+            } else {
+                $extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
+                $safeFilename = uniqid('product_', true) . '.' . strtolower($extension);
+                $destination = __DIR__ . '/uploads/' . $safeFilename;
+                if (move_uploaded_file($_FILES['product_image']['tmp_name'], $destination)) {
+                    $imagePath = 'uploads/' . $safeFilename;
+                } else {
+                    $errors[] = "Upload Failed";
+                }
+            }
+        }
+    }
+
+    if (empty($errors)) {
+        $sql = "INSERT INTO lab5 (image_path)
+                VALUES (:image_path)";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':image_path', $imagePath);
+        $stmt->execute();
+
+        $success = "Image Uploaded";
+    }
+}
+?>
+
+<main class="container mt-4">
+    <h1>Add Profile Picture</h1>
+
+    <?php if (!empty($errors)): ?>
+        <div class="alert alert-danger">
+            <h3>We Found the Following Errors:</h3>
+            <ul class="mb-0">
+                <?php foreach ($errors as $error): ?>
+                    <li><?= htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+    <form method="post" enctype="multipart/form-data" class="mt-3">
+        <label for="product_image" class="form-label">Profile Image</label>
+        <input
+            type="file"
+            id="product_image"
+            name="product_image"
+            class="form-control mb-4"
+            accept=".jpg,.jpeg,.png,.webp">
+
+        <button type="submit" class="btn btn-primary">Add Image</button>
+    </form>
+    <p class="mt-4">
+            <a href="profile.php">View Images</a>
+    </p>
+</main>
+
+<?php require "includes/footer.php"; ?>

@@ -70,4 +70,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </p>
 </main>
 
+                <!--  Reflection Questions
+
+                    1. The $_FILES superglobal in php is what handles file types in PHP. It allows collection of file type data, like size and type (JPG, PNG), which is why it is used over other superglobals like $_POST which can handle text type data.
+
+                    2. Without special settings the form cannot send data on files. As stated in the setting, forms use a different data type than text and needs to be sent in chunks so without this setting nothing will be sent.
+
+                    3. move_uploaded_file() As the name suggests this moves the file, which is required to get the file out of the temp location and into an uploads folder
+
+                    4. The file does not ny defualt go into an uploads file, the temp location will not permenately store data so for further use it needs to be moved to a more permenate locations. 
+
+
+                -->
+
 <?php require "includes/footer.php"; ?>

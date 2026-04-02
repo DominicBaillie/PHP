@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 // Database connection info
-$host = 'localhost';
+$host = 'local';
 $db = 'subscribers';
 $user = 'root';
 $pass = '';

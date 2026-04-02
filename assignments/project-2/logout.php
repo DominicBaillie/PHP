@@ -1,9 +1,4 @@
 <?php
-// logout.php
-// ------------------------------------------------------------
-// This page logs the user out by destroying their session
-// and then redirects them back to the login page.
-
 // Load the auth file so the session starts
 require "includes/auth.php";
 

@@ -12,6 +12,8 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $bio  = trim(filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_SPECIAL_CHARS));
 $delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+$images = filter_input(INPUT_POST, 'images', FILTER_SANITIZE_SPECIAL_CHARS);
 # Make into a list
 $skillsarray = explode(", ", $skills);
 
@@ -104,6 +106,27 @@ $stmt->execute();
         <main class="container mt-4">
             <h2>Information Submitted</h2>
             <p><strong>Thank you <?php echo $fname . ' ' . $lname; ?> for submitting your information</strong></p>
+            <main class="container mt-4">
+            <?php if (empty($images)): ?>
+                <p>Upload an Image</p>
+            <?php else: ?>
+                <div class="row">
+                    <?php foreach ($images as $image): ?>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <?php if (!empty($image['image_path'])): ?>
+                                    <img
+                                        src="<?= htmlspecialchars($image['image_path']); ?>"
+                                        class="card-img-top"
+                                    >
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+</main>
             <h4>Contact Information:</h4>
             <p>Email: <?php echo $email; ?></p>
             <p>Phone: <?php echo $phone; ?></p>

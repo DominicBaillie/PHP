@@ -1,4 +1,4 @@
-<?php require_once 'includes/header.php' ?>
+
 
 <body>
     <main class="container restricted text-center">
@@ -8,4 +8,3 @@
 </body>
 
 </html>
-<?php require_once 'includes/footer.php' ?>

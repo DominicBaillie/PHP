@@ -39,16 +39,51 @@
 <!-- Submits to process.php -->
             <button class="btn btn-primary mt-4" type="submit">Submit</button>
         </form>
+        <main class="container mt-4">
+    <h1>Submit Image</h1>
+
+    <?php if (!empty($errors)): ?>
+        <div class="alert alert-danger">
+            <h3>Please fix the following:</h3>
+            <ul class="mb-0">
+                <?php foreach ($errors as $error): ?>
+                    <li><?= htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($success !== ""): ?>
+        <div class="alert alert-success">
+            <?= htmlspecialchars($success); ?>
+        </div>
+    <?php endif; ?>
+    <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
+    <form method="post" enctype="multipart/form-data" class="mt-3">
+
+        <label for="description" class="form-label">Description</label>
+        <textarea
+            id="description"
+            name="description"
+            class="form-control mb-3"
+            rows="4"
+            required></textarea>
+
+        <label for="product_image" class="form-label">Image</label>
+        <input
+            type="file"
+            id="product_image"
+            name="product_image"
+            class="form-control mb-4"
+            accept=".jpg,.jpeg,.png,.webp">
+
+        <button type="submit" class="btn btn-primary">Add Image</button>
+    </form>
 
         <p class="mt-4">
             <a href="update.php">View Current Resumes</a>
         </p>
     </main>
-<!-- 
-        Difficult: Learning to add multi functionality to process.php was new and cool. I had multiple pages able to submit and get different results, such as; editing, deleting, or the base functionality
-        Easy: We learned the base setup for forms and processing in class, so that didn't take up too much time to alter for this project
-
--->
 </body>
 
 </html>

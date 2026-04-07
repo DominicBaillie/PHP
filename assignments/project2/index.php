@@ -1,5 +1,7 @@
 <?php
+    session_start();
     require_once "includes/connect.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +28,7 @@ header("Expires: 0");
 
 if (empty($_SESSION["user_id"])) {
     ?>
-    <h1>Please log in</h1>
+    <h3>Please log in</h3>
     <a href="login.php">Log in</a>
     <?php
 }

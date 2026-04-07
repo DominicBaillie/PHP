@@ -18,6 +18,8 @@
         <h1>Resume Builder</h1>
 <!-- The form, retrieves values from the user -->
         <form action="process.php" method="post" class="mt-3">
+            <div class="g-recaptcha" data-sitekey="6LeG6aosAAAAAFFkuCYMdWiVYYioKYk-y-xLXnmd"></div>
+
             <label class="form-label" for="first_name">First Name</label>
             <input class="form-control" type="text" id="first_name" name="first_name">
 
@@ -37,6 +39,7 @@
             <textarea class="form-control mb-2" id="skills" name="skills" placeholder="Enter skills" rows = "5"></textarea>
 
             <label for="bio" class="form-label">Bio</label>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
             
 <!-- Submits to process.php -->

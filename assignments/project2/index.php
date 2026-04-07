@@ -27,7 +27,7 @@ header("Expires: 0");
 if (empty($_SESSION["user_id"])) {
     ?>
     <h1>Please log in</h1>
-    <a href="update.php">View Current Resumes</a>
+    <a href="login.php">Log in</a>
     <?php
 }
 else{

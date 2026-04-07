@@ -19,7 +19,7 @@ $skillsarray = explode(", ", $skills);
 
 $errors = [];
 
-$key = "6LeG6aosAAAAAFdEOSXhp9Ogg9h9fdONb5SvqFAV";
+$key = "6LcmOqssAAAAAIulvLxTg5C7A7g2IYtB86PS10Gj";
 
 if (isset($_POST['g-recaptcha-response'])) {
     $recaptchaResponse = $_POST['g-recaptcha-response'];

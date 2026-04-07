@@ -1,5 +1,6 @@
 <?php
 require_once "connect.php";
+require_once "auth.php";
 $sql = "SELECT * FROM resumes ORDER BY id DESC";
 
 $stmt = $pdo->prepare($sql);

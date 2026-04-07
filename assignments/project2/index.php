@@ -18,7 +18,7 @@
         <h1>Resume Builder</h1>
 <!-- The form, retrieves values from the user -->
         <form action="process.php" method="post" class="mt-3">
-            <div class="g-recaptcha" data-sitekey="6LeG6aosAAAAAFFkuCYMdWiVYYioKYk-y-xLXnmd"></div>
+            <div class="g-recaptcha" data-sitekey="6LcmOqssAAAAAMFfnozsGkbQ7d8Hb7IER4ou29Yk"></div>
 
             <label class="form-label" for="first_name">First Name</label>
             <input class="form-control" type="text" id="first_name" name="first_name">
@@ -49,7 +49,7 @@
     <h1>Submit Image</h1>
     <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
     <form method="post" enctype="multipart/form-data" class="mt-3">
-        <div class="g-recaptcha" data-sitekey="6LeG6aosAAAAAFFkuCYMdWiVYYioKYk-y-xLXnmd"></div>
+        <div class="g-recaptcha" data-sitekey="6LcmOqssAAAAAMFfnozsGkbQ7d8Hb7IER4ou29Yk"></div>
         <label for="description" class="form-label">Description</label>
         <textarea
             id="description"

@@ -5,15 +5,15 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <!-- Bootstrap and meta data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMP1006 - Project Phase 2</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <main class="container mt-4">
         <h1>Resume Builder</h1>
 <!-- The form, retrieves values from the user -->
@@ -47,26 +47,9 @@
         </form>
         <main class="container mt-4">
     <h1>Submit Image</h1>
-
-    <?php if (!empty($errors)): ?>
-        <div class="alert alert-danger">
-            <h3>Please fix the following:</h3>
-            <ul class="mb-0">
-                <?php foreach ($errors as $error): ?>
-                    <li><?= htmlspecialchars($error); ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
-
-    <?php if ($success !== ""): ?>
-        <div class="alert alert-success">
-            <?= htmlspecialchars($success); ?>
-        </div>
-    <?php endif; ?>
     <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
     <form method="post" enctype="multipart/form-data" class="mt-3">
-
+        <div class="g-recaptcha" data-sitekey="6LeG6aosAAAAAFFkuCYMdWiVYYioKYk-y-xLXnmd"></div>
         <label for="description" class="form-label">Description</label>
         <textarea
             id="description"

@@ -19,6 +19,21 @@ $skillsarray = explode(", ", $skills);
 
 $errors = [];
 
+$key = "6LeG6aosAAAAAFdEOSXhp9Ogg9h9fdONb5SvqFAV";
+
+if (isset($_POST['g-recaptcha-response'])) {
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
+    $verify = file_get_contents(
+        "https://www.google.com/recaptcha/api/siteverify?secret={$key}&response={$recaptchaResponse}"
+    );
+    $responseData = json_decode($verify);
+    if (!$responseData->success) {
+        die("Captcha failed. Please try again.");
+    }
+} else {
+    die("Captcha Failed");
+}
+
 # Validation / I don't expect a name and such if it's being deleted
 if (empty($delete))
 {

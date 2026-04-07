@@ -13,6 +13,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
+<?php
+session_start();
+
+// Prevent standard browser/proxy caching
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
+// access the current session & check to see whether the user is logged in
+
+if (empty($_SESSION["user_id"])) {
+    ?>
+    <h1>Please log in</h1>
+    <a href="update.php">View Current Resumes</a>
+    <?php
+}
+else{
+    ?>
 <body>
     <main class="container mt-4">
         <h1>Resume Builder</h1>
@@ -74,5 +93,5 @@
         </p>
     </main>
 </body>
-
+<?php } ?>
 </html>

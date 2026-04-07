@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-$host = "localhost";
-$db = "project";
-$user = "root";
-$pass = "";
+$host = "172.31.22.43";
+$db = "Dominic200645091";
+$user = "Dominic200645091";
+$pass = "KmfcXb3TdN";
+
 $dsn = "mysql:host=$host;port=3307;dbname=$db;charset=utf8mb4";
 
 try 

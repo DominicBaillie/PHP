@@ -1,6 +1,6 @@
 <?php
 // Include the database connection so we can interact with the users table
-require "includes/connect.php";
+require_once "includes/connect.php";
 
 // Array to store validation errors
 $errors = [];

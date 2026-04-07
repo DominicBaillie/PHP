@@ -1,5 +1,5 @@
 <?php
-    require "includes/connect.php";
+    require_once "includes/connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

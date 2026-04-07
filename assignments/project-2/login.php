@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "includes/connect.php";
+require_once "includes/connect.php";
 
 $error = "";
 

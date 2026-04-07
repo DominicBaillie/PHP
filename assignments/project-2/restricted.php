@@ -1,4 +1,4 @@
-
+<html lang="en">
 
 <body>
     <main class="container restricted text-center">

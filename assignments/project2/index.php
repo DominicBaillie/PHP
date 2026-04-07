@@ -90,6 +90,7 @@ else{
 
         <p class="mt-4">
             <a href="update.php">View Current Resumes</a>
+            <a href="logout.php" class="ms-3">Logout</a>
         </p>
     </main>
 </body>

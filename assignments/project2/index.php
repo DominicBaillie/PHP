@@ -36,7 +36,7 @@ else{
         <h1>Resume Builder</h1>
 <!-- The form, retrieves values from the user -->
         <form method="post" enctype="multipart/form-data" class="mt-3" action="process.php">
-            <div class="g-recaptcha" data-sitekey="6LcmOqssAAAAAMFfnozsGkbQ7d8Hb7IER4ou29Yk"></div>
+            <div class="g-recaptcha" data-sitekey="6LeGoa0sAAAAANFFnI3sMcBcHZShggZvDPJdAXQF"></div>
 
             <label class="form-label" for="first_name">First Name</label>
             <input class="form-control" type="text" id="first_name" name="first_name">

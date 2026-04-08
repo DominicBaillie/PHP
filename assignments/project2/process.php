@@ -21,22 +21,22 @@ $skillsarray = explode(", ", $skills);
 
 $errors = [];
 
-$key = "6LcmOqssAAAAAIulvLxTg5C7A7g2IYtB86PS10Gj";
-// if(empty($delete))
-// {
-//     if (isset($_POST['g-recaptcha-response'])) {
-//         $recaptchaResponse = $_POST['g-recaptcha-response'];
-//         $verify = file_get_contents(
-//             "https://www.google.com/recaptcha/api/siteverify?secret={$key}&response={$recaptchaResponse}"
-//         );
-//         $responseData = json_decode($verify);
-//         if (!$responseData->success) {
-//             die("Captcha failed. Please try again.");
-//         }
-//     } else {
-//         die("Captcha Failed");
-//     }
-// }
+$key = "6LeGoa0sAAAAAAFgfSh-cJ4euX7Q5Uh9WwuuTO-4";
+if(empty($delete))
+{
+    if (isset($_POST['g-recaptcha-response'])) {
+        $recaptchaResponse = $_POST['g-recaptcha-response'];
+        $verify = file_get_contents(
+            "https://www.google.com/recaptcha/api/siteverify?secret={$key}&response={$recaptchaResponse}"
+        );
+        $responseData = json_decode($verify);
+        if (!$responseData->success) {
+            die("Captcha failed. Please try again.");
+        }
+    } else {
+        die("Captcha Failed");
+    }
+}
 
 $image_path = null;
 

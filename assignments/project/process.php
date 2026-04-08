@@ -75,7 +75,7 @@ if(!empty($id))
     ?>
     <h4>Resume Updated:</h4>
     <p>ID: <?php echo $id; ?></p>
-    <?php echo "<a href="update.php">View Current Resumes</a>"; ?>
+    <?php echo "<a href=\"update.php\">View Current Resumes</a>"; ?>
     <?php
     exit;
 }
@@ -121,7 +121,7 @@ $stmt->execute();
                 <ul><li>Skill: <?php echo $skill; ?></li></ul>
             <?php } ?>
             <p class="mt-3">
-                <?php echo "<a href="update.php">View Submissions</a>"; ?>
+            <?php echo "<a href=\"update.php\">View Current Resumes</a>"; ?>
             </p>
         </main>
     </body>

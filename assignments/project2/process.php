@@ -21,7 +21,7 @@ $skillsarray = explode(", ", $skills);
 
 $errors = [];
 
-$key = "6LeGoa0sAAAAAAFgfSh-cJ4euX7Q5Uh9WwuuTO-4";
+$key = "6Letpq0sAAAAAFf4VHhSpTUy9mCApLRT8Ll3WYhx";
 if(empty($delete))
 {
     if (isset($_POST['g-recaptcha-response'])) {

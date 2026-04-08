@@ -60,7 +60,7 @@ if ($delete)
 # Update database if update.php sends an id
 if(!empty($id)) 
 {
-    $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, bio = :bio, skills = :skills, email = :email, phone = :phone WHERE id = :id";
+    $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, bio = :bio, skills = :skills, email = :email, phone = :phone, image_path = :image_path, descrip = :descrip WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':first_name', $fname);
     $stmt->bindParam(':last_name', $lname);
@@ -68,17 +68,19 @@ if(!empty($id))
     $stmt->bindParam(':skills', $skills);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':image_path', $image_path);
+    $stmt->bindParam(':descrip', $descrip);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     ?>
     <h4>Resume Updated:</h4>
     <p>ID: <?php echo $id; ?></p>
-    <a href="update.php">View Current Resumes</a>
+    <?php echo "<a href="update.php">View Current Resumes</a>"; ?>
     <?php
     exit;
 }
 # Insert into database
-$sql = "INSERT INTO resumes (first_name, last_name, bio, skills, email, phone)VALUES (:first_name, :last_name, :bio, :skills, :email, :phone)";
+$sql = "INSERT INTO resumes (first_name, last_name, bio, skills, email, phone, image_path, descrip)VALUES (:first_name, :last_name, :bio, :skills, :email, :phone, :image_path, :descrip)";
 
 # Prepare and execute
 $stmt = $pdo->prepare($sql);
@@ -88,6 +90,8 @@ $stmt->bindParam(':bio', $bio);
 $stmt->bindParam(':skills', $skills);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':phone', $phone);
+$stmt->bindParam(':image_path', $image_path);
+$stmt->bindParam(':descrip', $descrip);
 $stmt->execute();
 
 ?>
@@ -117,7 +121,7 @@ $stmt->execute();
                 <ul><li>Skill: <?php echo $skill; ?></li></ul>
             <?php } ?>
             <p class="mt-3">
-                <a href="update.php">View Submissions</a>
+                <?php echo "<a href="update.php">View Submissions</a>"; ?>
             </p>
         </main>
     </body>

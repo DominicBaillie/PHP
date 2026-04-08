@@ -28,7 +28,6 @@ $length = count($resumes);
 
         <form action="process.php" method="post" class="mt-3">
 <!-- The form, retrieves values from the user -->
-        <form action="process.php" method="post" class="mt-3">
             <label class="form-label" for="first_name">First Name</label>
             <input class="form-control" type="text" id="first_name" name="first_name">
 

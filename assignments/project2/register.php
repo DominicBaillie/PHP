@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
 
         // SQL query to check for existing username or email
-        $sql = "SELECT id FROM users WHERE username = :username OR email = :email";
+        $sql = "SELECT id FROM resumes WHERE username = :username OR email = :email";
 
         // Prepare the SQL statement using PDO
         $stmt = $pdo->prepare($sql);
@@ -189,5 +189,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <!-- Link to login page -->
         <a href="login.php" class="btn btn-secondary">Login Instead</a>
+        <a href="index.php" class="btn btn-link">Back to Home</a>
     </form>
 </main>

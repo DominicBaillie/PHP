@@ -3,11 +3,12 @@
 
 declare(strict_types=1);
 
-$host = "localhost";
-$db = "phase2";
-$user = "root";
-$pass = "";
-$dsn = "mysql:host=$host;port=3307;dbname=$db;charset=utf8mb4";
+$host = "172.31.22.43";
+$db = "Dominic200645091";
+$user = "Dominic200645091";
+$pass = "KmfcXB3TdN";
+
+$dsn = "mysql:host=$host;port=3306;dbname=$db;charset=utf8mb4";
 
 try 
 {
@@ -19,3 +20,5 @@ catch (PDOException $e)
 {
     die("Connection failed: " . $e->getMessage());
 }
+
+?>

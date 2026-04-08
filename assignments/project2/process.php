@@ -89,7 +89,7 @@ if ($delete)
     exit;
 }
 # Update database if update.php sends an id
-else if(!empty($id)) 
+elseif(!empty($id)) 
 {
     $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, current_position = :current_position, bio = :bio, skills = :skills, email = :email, phone = :phone, image_path = :image_path, descrip = :descrip WHERE id = :id";
     $stmt = $pdo->prepare($sql);

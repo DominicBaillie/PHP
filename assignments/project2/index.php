@@ -69,10 +69,10 @@ else{
                 class="form-control mb-4"
                 accept=".jpg,.jpeg,.png,.webp">
 
-            <label for="description" class="form-label">Image Description</label>
+            <label for="descrip" class="form-label">Image Description</label>
             <textarea
-                id="description"
-                name="description"
+                id="descrip"
+                name="descrip"
                 class="form-control mb-3"
                 rows="4"
                 required></textarea>

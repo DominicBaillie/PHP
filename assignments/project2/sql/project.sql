@@ -10,7 +10,7 @@ CREATE TABLE resumes (
     phone VARCHAR(20),
     bio TEXT,
     image_path VARCHAR(255),
-    description TEXT,
+    descrip TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

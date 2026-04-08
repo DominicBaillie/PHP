@@ -13,7 +13,7 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $bio  = trim(filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_SPECIAL_CHARS));
 $delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
-$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+$descrip = filter_input(INPUT_POST, 'descrip', FILTER_SANITIZE_SPECIAL_CHARS);
 
 
 # Make into a list
@@ -88,7 +88,7 @@ if ($delete)
 # Update database if update.php sends an id
 if(!empty($id)) 
 {
-    $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, current_position = :current_position, bio = :bio, skills = :skills, email = :email, phone = :phone, image_path = :image_path, description = :description WHERE id = :id";
+    $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, current_position = :current_position, bio = :bio, skills = :skills, email = :email, phone = :phone, image_path = :image_path, descrip = :descrip WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':first_name', $fname);
     $stmt->bindParam(':last_name', $lname);
@@ -98,7 +98,7 @@ if(!empty($id))
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':phone', $phone);
     $stmt->bindParam(':image_path', $imagePath);
-    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':descrip', $descrip);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     ?>
@@ -108,7 +108,7 @@ if(!empty($id))
     exit;
 }
 # Insert into database
-$sql = "INSERT INTO resumes (first_name, last_name, current_position, bio, skills, email, phone, image_path, description)VALUES (:first_name, :last_name, :current_position, :bio, :skills, :email, :phone, :image_path, :description)";
+$sql = "INSERT INTO resumes (first_name, last_name, current_position, bio, skills, email, phone, image_path, descrip)VALUES (:first_name, :last_name, :current_position, :bio, :skills, :email, :phone, :image_path, :descrip)";
 
 # Prepare and execute
 $stmt = $pdo->prepare($sql);
@@ -120,7 +120,7 @@ $stmt->bindParam(':skills', $skills);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':phone', $phone);
 $stmt->bindParam(':image_path', $imagePath);
-$stmt->bindParam(':description', $description);
+$stmt->bindParam(':descrip', $descrip);
 $stmt->execute();
 
 ?>

@@ -74,7 +74,7 @@ $length = count($resumes);
                               <img
                                   src="<?= htmlspecialchars($resume['image_path']); ?>"
                                   class="card-img-top"
-                                  alt="<?= htmlspecialchars($resume['description']); ?>"
+                                  alt="<?= htmlspecialchars($resume['descrip']); ?>"
                               >
                       </div>
                   </div>

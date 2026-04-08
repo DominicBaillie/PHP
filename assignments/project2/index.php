@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMP1006 - Project Phase 2</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <div class="g-recaptcha" data-sitekey="6LcmOqssAAAAAMFfnozsGkbQ7d8Hb7IER4ou29Yk"></div>
 </head>
 
 <?php
@@ -60,15 +59,6 @@ else{
             <label for="bio" class="form-label">Bio</label>
             <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
             <h1>Submit Image</h1>
-            <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
-                <label for="description" class="form-label">Description</label>
-                <textarea
-                    id="description"
-                    name="description"
-                    class="form-control mb-3"
-                    rows="4"
-                    required></textarea>
-
                     <label for="image_path" class="form-label">Image</label>
                     <input
                         type="file"

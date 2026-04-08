@@ -85,7 +85,9 @@ $length = count($resumes);
             <td><?php echo htmlspecialchars($resume['email']); ?></td>
             <td><?php echo htmlspecialchars($resume['phone']); ?></td>
             <td><?php echo htmlspecialchars($resume['bio']); ?></td>
-            <td><?php echo htmlspecialchars($resume['skills']); ?></td>
+            <?php foreach (explode(", ", $resume['skills']) as $skill) {
+                echo "<td>" . htmlspecialchars($skill) . "</td>";
+            } ?>
           </tr>
         <?php endforeach; ?>
       </tbody>

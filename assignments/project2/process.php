@@ -1,39 +1,51 @@
 <?php
-require_once "connect.php";  
+require_once "includes/connect.php";  
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Invalid request');
 }
 # Sanatize
 $fname = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
 $lname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$current_position = filter_input(INPUT_POST, 'current_position', FILTER_SANITIZE_SPECIAL_CHARS);
 $skills = filter_input(INPUT_POST, 'skills', FILTER_SANITIZE_SPECIAL_CHARS);
 $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $bio  = trim(filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_SPECIAL_CHARS));
 $delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+$descrip = filter_input(INPUT_POST, 'descrip', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$images = filter_input(INPUT_POST, 'images', FILTER_SANITIZE_SPECIAL_CHARS);
+
 # Make into a list
 $skillsarray = explode(", ", $skills);
 
 $errors = [];
 
 $key = "6LcmOqssAAAAAIulvLxTg5C7A7g2IYtB86PS10Gj";
+// if(empty($delete))
+// {
+//     if (isset($_POST['g-recaptcha-response'])) {
+//         $recaptchaResponse = $_POST['g-recaptcha-response'];
+//         $verify = file_get_contents(
+//             "https://www.google.com/recaptcha/api/siteverify?secret={$key}&response={$recaptchaResponse}"
+//         );
+//         $responseData = json_decode($verify);
+//         if (!$responseData->success) {
+//             die("Captcha failed. Please try again.");
+//         }
+//     } else {
+//         die("Captcha Failed");
+//     }
+// }
 
-if (isset($_POST['g-recaptcha-response'])) {
-    $recaptchaResponse = $_POST['g-recaptcha-response'];
-    $verify = file_get_contents(
-        "https://www.google.com/recaptcha/api/siteverify?secret={$key}&response={$recaptchaResponse}"
-    );
-    $responseData = json_decode($verify);
-    if (!$responseData->success) {
-        die("Captcha failed. Please try again.");
-    }
-} else {
-    die("Captcha Failed");
+if (!empty($_FILES['image_path']['name'])) {
+    $targetDir = "uploads/";
+    $fileName = basename($_FILES["image_path"]["name"]);
+    $targetFile = $targetDir . $fileName;
+
+    move_uploaded_file($_FILES["image_path"]["tmp_name"], $targetFile);
+    $image_path = $targetFile;
 }
-
 # Validation / I don't expect a name and such if it's being deleted
 if (empty($delete))
 {
@@ -76,14 +88,17 @@ if ($delete)
 # Update database if update.php sends an id
 if(!empty($id)) 
 {
-    $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, bio = :bio, skills = :skills, email = :email, phone = :phone WHERE id = :id";
+    $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, current_position = :current_position, bio = :bio, skills = :skills, email = :email, phone = :phone, image_path = :image_path, descrip = :descrip WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':first_name', $fname);
     $stmt->bindParam(':last_name', $lname);
+    $stmt->bindParam(':current_position', $current_position);
     $stmt->bindParam(':bio', $bio);
     $stmt->bindParam(':skills', $skills);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':image_path', $imagePath);
+    $stmt->bindParam(':descrip', $descrip);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     ?>
@@ -93,16 +108,19 @@ if(!empty($id))
     exit;
 }
 # Insert into database
-$sql = "INSERT INTO resumes (first_name, last_name, bio, skills, email, phone)VALUES (:first_name, :last_name, :bio, :skills, :email, :phone)";
+$sql = "INSERT INTO resumes (first_name, last_name, current_position, bio, skills, email, phone, image_path, descrip)VALUES (:first_name, :last_name, :current_position, :bio, :skills, :email, :phone, :image_path, :descrip)";
 
 # Prepare and execute
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':first_name', $fname);
 $stmt->bindParam(':last_name', $lname);
+$stmt->bindParam(':current_position', $current_position);
 $stmt->bindParam(':bio', $bio);
 $stmt->bindParam(':skills', $skills);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':phone', $phone);
+$stmt->bindParam(':image_path', $imagePath);
+$stmt->bindParam(':descrip', $descrip);
 $stmt->execute();
 
 ?>
@@ -122,26 +140,7 @@ $stmt->execute();
             <h2>Information Submitted</h2>
             <p><strong>Thank you <?php echo $fname . ' ' . $lname; ?> for submitting your information</strong></p>
             <main class="container mt-4">
-            <?php if (empty($images)): ?>
-                <p>Upload an Image</p>
-            <?php else: ?>
-                <div class="row">
-                    <?php foreach ($images as $image): ?>
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <?php if (!empty($image['image_path'])): ?>
-                                    <img
-                                        src="<?= htmlspecialchars($image['image_path']); ?>"
-                                        class="card-img-top"
-                                    >
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-
-</main>
+        </main>
             <h4>Contact Information:</h4>
             <p>Email: <?php echo $email; ?></p>
             <p>Phone: <?php echo $phone; ?></p>

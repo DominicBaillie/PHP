@@ -1,6 +1,6 @@
 <?php
-    session_start();
     require_once "includes/connect.php";
+    session_start();
 
     // Prevent standard browser/proxy caching
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -19,6 +19,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <div class="g-recaptcha" data-sitekey="6LcmOqssAAAAAMFfnozsGkbQ7d8Hb7IER4ou29Yk"></div>
 </head>
+
+<?php
+// Prevent standard browser/proxy caching
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
 // access the current session & check to see whether the user is logged in
 <?php
 
@@ -35,6 +43,8 @@ else{
         <h1>Resume Builder</h1>
 <!-- The form, retrieves values from the user -->
         <form action="process.php" method="post" class="mt-3">
+        <form method="post" enctype="multipart/form-data" class="mt-3">
+            <div class="g-recaptcha" data-sitekey="6LcmOqssAAAAAMFfnozsGkbQ7d8Hb7IER4ou29Yk"></div>
 
             <label class="form-label" for="first_name">First Name</label>
             <input class="form-control" type="text" id="first_name" name="first_name">
@@ -72,16 +82,25 @@ else{
             rows="4"
             required></textarea>
 
-        <label for="product_image" class="form-label">Image</label>
-        <input
-            type="file"
-            id="product_image"
-            name="product_image"
-            class="form-control mb-4"
-            accept=".jpg,.jpeg,.png,.webp">
+            <label for="product_image" class="form-label">Image</label>
+            <input
+                type="file"
+                id="product_image"
+                name="product_image"
+                class="form-control mb-4"
+                accept=".jpg,.jpeg,.png,.webp">
 
-        <button type="submit" class="btn btn-primary">Add Image</button>
-    </form>
+            <label for="descrip" class="form-label">Image Description</label>
+            <textarea
+                id="descrip"
+                name="descrip"
+                class="form-control mb-3"
+                rows="4"
+                required></textarea>
+<!-- Submits to process.php -->
+            <button class="btn btn-primary mt-4" type="submit">Submit</button>
+        </form>
+        <main class="container mt-4">
 
         <p class="mt-4">
             <script src="https://www.google.com/recaptcha/api.js" async defer></script>

@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once "includes/connect.php";
+session_start();
 
 $error = "";
 
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Username/email and password are required.";
     } else {
         $sql = "SELECT id, username, email, password
-                FROM users
+                FROM resumes
                 WHERE username = :login OR email = :login
                 LIMIT 1";
         $stmt = $pdo->prepare($sql);
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
 
-            header("Location: orders.php");
+            header("Location: update.php");
             exit;
         } else {
             $error = "Invalid credentials. Please try again.";
@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit" class="btn btn-primary">Login</button>
         <a href="register.php" class="btn btn-secondary">Create Account</a>
+        <a href="index.php" class="btn btn-link">Back to Home</a>
     </form>
 </main>
 

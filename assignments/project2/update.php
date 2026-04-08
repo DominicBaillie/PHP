@@ -103,3 +103,4 @@ $length = count($resumes);
     <a href="index.php">Back to Form</a>
   </p>
 </main>
+<!-- This is a mess, but it works so.. I'll take it -->

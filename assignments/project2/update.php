@@ -36,7 +36,7 @@ $length = count($resumes);
             <input class="form-control" type="text" id="last_name" name="last_name">
 
             <label class="form-label mt-3" for="current_position">Current Position</label>
-            <input class="form-control" type="text" id="current_position" name="current_position">
+            <input class="form-control" type="text" id="id" name="id">
 
             <label for= "delete" class="form-label">Delete</label>
             <input type="checkbox" id="delete" name="delete">

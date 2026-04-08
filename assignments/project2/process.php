@@ -84,11 +84,12 @@ if ($delete)
     ?>
     <h4>Resume Deleted:</h4>
     <p>ID: <?php echo $id; ?></p>
+    <a href="update.php">View Submissions</a>
     <?php
     exit;
 }
 # Update database if update.php sends an id
-if(!empty($id)) 
+else if(!empty($id)) 
 {
     $sql = "UPDATE resumes SET first_name = :first_name, last_name = :last_name, current_position = :current_position, bio = :bio, skills = :skills, email = :email, phone = :phone, image_path = :image_path, descrip = :descrip WHERE id = :id";
     $stmt = $pdo->prepare($sql);
@@ -106,6 +107,7 @@ if(!empty($id))
     ?>
     <h4>Resume Updated:</h4>
     <p>ID: <?php echo $id; ?></p>
+    <a href="update.php">View Submissions</a>
     <?php
     exit;
 }

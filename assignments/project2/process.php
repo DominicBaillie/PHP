@@ -38,13 +38,13 @@ $key = "6LcmOqssAAAAAIulvLxTg5C7A7g2IYtB86PS10Gj";
 //     }
 // }
 
-if (!empty($_FILES['product_image']['name'])) {
+if (!empty($_FILES['image_path']['name'])) {
     $targetDir = "uploads/";
-    $fileName = basename($_FILES["product_image"]["name"]);
+    $fileName = basename($_FILES["image_path"]["name"]);
     $targetFile = $targetDir . $fileName;
 
-    move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFile);
-    $imagePath = $targetFile;
+    move_uploaded_file($_FILES["image_path"]["tmp_name"], $targetFile);
+    $image_path = $targetFile;
 }
 # Validation / I don't expect a name and such if it's being deleted
 if (empty($delete))

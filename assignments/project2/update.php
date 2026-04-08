@@ -26,7 +26,7 @@ $length = count($resumes);
     <div class="container mt-4">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-        <form action="process.php" method="post" class="mt-3">
+        <form method="post" enctype="multipart/form-data" class="mt-3" action="process.php">
 <!-- The form, retrieves values from the user -->
             <label class="form-label" for="first_name">First Name</label>
             <input class="form-control" type="text" id="first_name" name="first_name">

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Username/email and password are required.";
     } else {
         $sql = "SELECT id, username, email, password
-                FROM resumes
+                FROM users
                 WHERE username = :login OR email = :login
                 LIMIT 1";
         $stmt = $pdo->prepare($sql);

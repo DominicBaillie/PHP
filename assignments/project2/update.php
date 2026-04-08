@@ -8,29 +8,22 @@ $stmt->execute();
 $resumes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $length = count($resumes);
 ?>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<!-- Bootstrap and meta data -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP1006 - Project Phase 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
 <main class="container mt-4">
   <h1>Resumes</h1>
 
   <?php if (count($resumes) === 0): ?>
     <p>No resumes yet.</p>
   <?php else: ?>
-    <table class="table table-bordered mt-3">
-      <thead>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <tr>
-          <!-- Table headers -->
-          <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Bio</th>
-          <th>Skills</th>
-        
-
-        </tr>
-      </thead>
-      <tbody>
+    <div class="container mt-4">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
         <form action="process.php" method="post" class="mt-3">
@@ -64,34 +57,31 @@ $length = count($resumes);
 <!-- Submits to process.php -->
             <button class="btn btn-primary mt-4" type="submit">Submit</button>
         </form>
+        </div>
         <!-- Loops through resumes in project -->
         <?php foreach ($resumes as $resume): ?>
           <tr>
         <!-- Echo each item in subscriber -->
-          <?php if (!empty($image['image_path'])): ?>
+          <?php if (!empty($resume['image_path'])): ?>
               <div class="col-md-4 mb-4">
-                      <div class="card h-100">
-                              <img
-                                  src="<?= htmlspecialchars($resume['image_path']); ?>"
-                                  class="card-img-top"
-                                  alt="<?= htmlspecialchars($resume['descrip']); ?>"
-                              >
-                      </div>
+                      <img
+                        src="<?= htmlspecialchars($resume['image_path']); ?>"
+                        class="card-img-top"
+                        alt="<?= htmlspecialchars($resume['descrip']); ?>"
+                      >
                   </div>
-            <?php endif; ?>
-            <td><?php echo htmlspecialchars($resume['id']); ?></td>
-            <td><?php echo htmlspecialchars($resume['first_name']); ?></td>
-            <td><?php echo htmlspecialchars($resume['last_name']); ?></td>
-            <td><?php echo htmlspecialchars($resume['email']); ?></td>
-            <td><?php echo htmlspecialchars($resume['phone']); ?></td>
-            <td><?php echo htmlspecialchars($resume['bio']); ?></td>
-            <?php foreach (explode(", ", $resume['skills']) as $skill) {
-                echo "<td>" . htmlspecialchars($skill) . "</td>";
+            <?php endif; 
+            echo "<p><strong>ID:</strong> " . htmlspecialchars($resume['id']) . "</p>";
+            echo "<p><strong>First Name:</strong> " . htmlspecialchars($resume['first_name']) . "</p>";
+            echo "<p><strong>Last Name:</strong> " . htmlspecialchars($resume['last_name']) . "</p>";
+            echo "<p><strong>Email:</strong> " . htmlspecialchars($resume['email']) . "</p>";
+            echo "<p><strong>Phone:</strong> " . htmlspecialchars($resume['phone']) . "</p>";
+            echo "<p><strong>Bio:</strong> " . htmlspecialchars($resume['bio']) . "</p>";
+            $skillsarray = explode(",", $resume['skills']);
+             foreach ($skillsarray as $skill) {
+                echo "<ul><li>" . $skill . "</li></ul>";
             } ?>
-          </tr>
         <?php endforeach; ?>
-      </tbody>
-    </table>
   <?php endif; ?>
 
   <p class="mt-3">

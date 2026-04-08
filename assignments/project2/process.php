@@ -109,22 +109,24 @@ if(!empty($id))
     <?php
     exit;
 }
-# Insert into database
-$sql = "INSERT INTO resumes (first_name, last_name, current_position, bio, skills, email, phone, image_path, descrip)VALUES (:first_name, :last_name, :current_position, :bio, :skills, :email, :phone, :image_path, :descrip)";
+else
+{
+        # Insert into database
+    $sql = "INSERT INTO resumes (first_name, last_name, current_position, bio, skills, email, phone, image_path, descrip)VALUES (:first_name, :last_name, :current_position, :bio, :skills, :email, :phone, :image_path, :descrip)";
 
-# Prepare and execute
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':first_name', $fname);
-$stmt->bindParam(':last_name', $lname);
-$stmt->bindParam(':current_position', $current_position);
-$stmt->bindParam(':bio', $bio);
-$stmt->bindParam(':skills', $skills);
-$stmt->bindParam(':email', $email);
-$stmt->bindParam(':phone', $phone);
-$stmt->bindParam(':image_path', $image_path);
-$stmt->bindParam(':descrip', $descrip);
-$stmt->execute();
-
+        # Prepare and execute
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':first_name', $fname);
+    $stmt->bindParam(':last_name', $lname);
+    $stmt->bindParam(':current_position', $current_position);
+    $stmt->bindParam(':bio', $bio);
+    $stmt->bindParam(':skills', $skills);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':image_path', $image_path);
+    $stmt->bindParam(':descrip', $descrip);
+    $stmt->execute();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

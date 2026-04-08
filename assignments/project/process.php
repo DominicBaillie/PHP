@@ -53,6 +53,7 @@ if ($delete)
     ?>
     <h4>Resume Deleted:</h4>
     <p>ID: <?php echo $id; ?></p>
+    <a href="update.php">View Current Resumes</a>
     <?php
     exit;
 }
@@ -72,6 +73,7 @@ if(!empty($id))
     ?>
     <h4>Resume Updated:</h4>
     <p>ID: <?php echo $id; ?></p>
+    <a href="update.php">View Current Resumes</a>
     <?php
     exit;
 }

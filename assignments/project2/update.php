@@ -52,6 +52,22 @@ $length = count($resumes);
 
             <label for="bio" class="form-label">Bio</label>
             <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
+            <h1>Submit Image</h1>
+                    <label for="image_path" class="form-label">Image</label>
+                    <input
+                        type="file"
+                        id="image_path"
+                        name="image_path"
+                        class="form-control mb-4"
+                        accept=".jpg,.jpeg,.png,.webp">
+
+                    <label for="descrip" class="form-label">Image Description</label>
+                    <textarea
+                        id="descrip"
+                        name="descrip"
+                        class="form-control mb-3"
+                        rows="4"
+                        required></textarea>
             
 <!-- Submits to process.php -->
             <button class="btn btn-primary mt-4" type="submit">Submit</button>

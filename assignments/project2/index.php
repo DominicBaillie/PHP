@@ -59,48 +59,42 @@ else{
 
             <label for="bio" class="form-label">Bio</label>
             <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
-            
-<!-- Submits to process.php -->
-            <button class="btn btn-primary mt-4" type="submit">Submit</button>
-        </form>
-        <main class="container mt-4">
-    <h1>Submit Image</h1>
-    <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
-    <form method="post" enctype="multipart/form-data" class="mt-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea
-            id="description"
-            name="description"
-            class="form-control mb-3"
-            rows="4"
-            required></textarea>
+            <h1>Submit Image</h1>
+            <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    class="form-control mb-3"
+                    rows="4"
+                    required></textarea>
 
-            <label for="product_image" class="form-label">Image</label>
-            <input
-                type="file"
-                id="product_image"
-                name="product_image"
-                class="form-control mb-4"
-                accept=".jpg,.jpeg,.png,.webp">
+                    <label for="image_path" class="form-label">Image</label>
+                    <input
+                        type="file"
+                        id="image_path"
+                        name="image_path"
+                        class="form-control mb-4"
+                        accept=".jpg,.jpeg,.png,.webp">
 
-            <label for="descrip" class="form-label">Image Description</label>
-            <textarea
-                id="descrip"
-                name="descrip"
-                class="form-control mb-3"
-                rows="4"
-                required></textarea>
-<!-- Submits to process.php -->
-            <button class="btn btn-primary mt-4" type="submit">Submit</button>
-        </form>
-        <main class="container mt-4">
-
-        <p class="mt-4">
-            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-            <a href="update.php">View Current Resumes</a>
-            <a href="logout.php" class="ms-3">Logout</a>
-        </p>
-    </main>
+                    <label for="descrip" class="form-label">Image Description</label>
+                    <textarea
+                        id="descrip"
+                        name="descrip"
+                        class="form-control mb-3"
+                        rows="4"
+                        required></textarea>
+        <!-- Submits to process.php -->
+                    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+                </form>
+            <footer>
+                <p class="mt-4">
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                <a href="update.php">View Current Resumes</a>
+                <a href="logout.php" class="ms-3">Logout</a>
+                </p>
+            </footer>
+        </main>
 </body>
 <?php } ?>
 </html>

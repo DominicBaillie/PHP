@@ -38,6 +38,8 @@ $key = "6LcmOqssAAAAAIulvLxTg5C7A7g2IYtB86PS10Gj";
 //     }
 // }
 
+$image_path = null;
+
 if (!empty($_FILES['image_path']['name'])) {
     $targetDir = "uploads/";
     $fileName = basename($_FILES["image_path"]["name"]);
@@ -97,7 +99,7 @@ if(!empty($id))
     $stmt->bindParam(':skills', $skills);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':phone', $phone);
-    $stmt->bindParam(':image_path', $imagePath);
+    $stmt->bindParam(':image_path', $image_path);
     $stmt->bindParam(':descrip', $descrip);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -119,7 +121,7 @@ $stmt->bindParam(':bio', $bio);
 $stmt->bindParam(':skills', $skills);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':phone', $phone);
-$stmt->bindParam(':image_path', $imagePath);
+$stmt->bindParam(':image_path', $image_path);
 $stmt->bindParam(':descrip', $descrip);
 $stmt->execute();
 

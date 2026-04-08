@@ -11,7 +11,7 @@ $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $bio  = trim(filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_SPECIAL_CHARS));
 $delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_SPECIAL_CHARS);
-$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+$id = filter_input(INPUT_POST, 'current_position', FILTER_SANITIZE_NUMBER_INT);
 # Make into a list
 $skillsarray = explode(", ", $skills);
 

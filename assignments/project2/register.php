@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // SQL query to insert the new user
-        $sql = "INSERT INTO users (username, email, password)
+        $sql = "INSERT INTO resumes (username, email, password)
                 VALUES (:username, :email, :password)";
 
         // Prepare the insert statement
